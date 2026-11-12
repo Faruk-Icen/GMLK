@@ -2,6 +2,8 @@
 
 Thanks for helping improve GMLK. Bug reports, documentation fixes, examples, and focused code changes are welcome.
 
+See the [maintenance policy](MAINTAINERS.md) for response expectations. Issues labeled [`good first issue`](https://github.com/Faruk-Icen/GMLK/labels/good%20first%20issue) are scoped for new contributors.
+
 ## Before you start
 
 - For a bug, open an issue with the expected result, what happened, and a small reproduction. Include your Roblox Studio version if the issue happens only in Studio.
@@ -15,7 +17,7 @@ Thanks for helping improve GMLK. Bug reports, documentation fixes, examples, and
 - `examples/coin-counter/` is a runnable Rojo example. Its server modules map to `ServerStorage.Modules.Client`; the folder is named `Client` in this framework even though it runs on the server.
 - `tests/` contains Luau checks, and `.github/workflows/luau.yml` runs the automated checks.
 
-Keep changes small and consistent with the existing Luau style. Add or update a meaningful check when changing utility behavior, and update the README when changing setup steps or a public API.
+Keep changes small and consistent with the existing Luau style: use descriptive PascalCase names for local variables and functions where the surrounding module does, keep client and server responsibilities separate, and avoid adding comments that repeat the code. Add or update a meaningful check when changing utility behavior, and update the README when changing setup steps or a public API.
 
 ## Check your change
 

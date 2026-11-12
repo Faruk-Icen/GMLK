@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible GMLK problem
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: For security issues, follow [SECURITY.md](https://github.com/Faruk-Icen/GMLK/security/policy) instead of opening a public issue. Remove secrets and player data from reports.
+  - type: input
+    id: version
+    attributes:
+      label: GMLK version or commit
+      placeholder: v0.1.1 or commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include a minimal Luau example or Rojo project layout when possible.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and Output messages
+    validations:
+      required: true
+  - type: input
+    id: studio
+    attributes:
+      label: Roblox Studio version, if relevant
