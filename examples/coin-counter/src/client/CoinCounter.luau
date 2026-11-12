@@ -23,28 +23,17 @@ function CoinCounter:Start()
 	Button.TextSize = 22
 	Button.Parent = Gui
 
-	local Status = Instance.new("TextLabel")
-	Status.Name = "Status"
-	Status.Size = UDim2.fromOffset(280, 44)
-	Status.Position = UDim2.fromScale(0.5, 0.5)
-	Status.AnchorPoint = Vector2.new(0.5, 0.5)
-	Status.BackgroundTransparency = 1
-	Status.Text = "Coins: 0"
-	Status.TextSize = 20
-	Status.Parent = Gui
-	Status.Position += UDim2.fromOffset(0, 54)
-
 	Button.Activated:Connect(function()
 		task.spawn(function()
 			local Success, Balance, Detail = pcall(self.Remote.InvokeServer, self.Remote, 1)
 			if not Success then
-				Status.Text = "Request failed"
+				warn("[GMLK Coin Counter] Request failed:", Balance)
 			elseif type(Balance) == "number" then
-				Status.Text = "Coins: " .. GMLK.Number.Abbreviate(Balance, 0)
+				print("[GMLK Coin Counter] Coin added. Balance: " .. GMLK.Number.Abbreviate(Balance, 0))
 			elseif type(Detail) == "number" then
-				Status.Text = "Wait " .. math.ceil(Detail) .. "s"
+				warn("[GMLK Coin Counter] Rate limited. Retry in " .. math.ceil(Detail) .. "s")
 			else
-				Status.Text = tostring(Detail or "Request rejected")
+				warn("[GMLK Coin Counter] Request rejected:", Detail or Balance)
 			end
 		end)
 	end)
