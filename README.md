@@ -1,25 +1,32 @@
 # GMLK - Grumy's Module Loader Kit for Roblox
 
-GMLK is an open source Luau framework for loading Roblox modules through `Init` and `Start` hooks. It also includes number, timestamp, duration, math, table, signal, remote, cleanup, state, pooling, timer, attribute, random, and tween utilities.
+GMLK gives Roblox projects one client and server module startup pattern plus practical Luau utilities for remotes, signals, time, numbers, and more.
+
+[![Luau checks](https://github.com/Faruk-Icen/GMLK/actions/workflows/luau.yml/badge.svg)](https://github.com/Faruk-Icen/GMLK/actions/workflows/luau.yml) [![MIT license](https://img.shields.io/github/license/Faruk-Icen/GMLK)](LICENSE)
+
+![GMLK coin counter demo showing Studio Output feedback](assets/coin-counter-demo.gif)
+
+**[Try the coin counter example](examples/coin-counter/README.md)** · **[Read the release notes](CHANGELOG.md)**
 
 Want to help improve it? Read the [contribution guide](CONTRIBUTING.md).
 
+For issue response expectations, see the [maintenance policy](MAINTAINERS.md).
+
 See the [changelog](CHANGELOG.md) for release notes and upcoming changes.
 
-## Try it in 5 minutes
+## Run the example
 
-1. Clone this repository and install [Rojo](https://rojo.space/).
-2. Open a new Roblox Studio place. From the repository root, run `rojo serve examples/coin-counter/default.project.json`.
-3. Connect the Rojo plugin in Studio, sync the project, and press **Play**.
-4. Click **Add coin** to see the client and server modules work together. Click quickly four times to see the server rate limit a remote request.
+With [Rojo](https://rojo.space/) and its Studio plugin installed, start the example with one terminal command:
+
+```sh
+git clone --depth 1 https://github.com/Faruk-Icen/GMLK.git && cd GMLK && rojo serve examples/coin-counter/default.project.json
+```
+
+Open a new Roblox Studio place, connect the Rojo plugin, sync, and press **Play**. Open **Output** and click **Add coin**. Click quickly four times to see the server rate limit a remote request.
 
 The [coin counter example](examples/coin-counter) uses the same GMLK source as the main project. Its [project file](examples/coin-counter/default.project.json) shows where each script and module belongs.
 
-![Coin counter example showing the Add coin button and Studio Output feedback](assets/coin-counter-demo.gif)
-
 If GMLK helps your project, a GitHub star is appreciated ⭐
-
-![Starstruck achievement animation](https://githubachievements.com/cdn-cgi/image/width=1200/images/starstruck/1.gif)
 
 ## When to use GMLK
 
@@ -45,7 +52,13 @@ The server folder is named `Client` to match the requested path. Its contents ru
 
 ## Install
 
-Clone this repository and sync `default.project.json` with [Rojo](https://rojo.space/). The project file creates the folders and places the two bootstrap scripts automatically. You can also copy the files into Roblox Studio by hand using the layout above. When copying by hand, make `src/GMLK/init.luau` the source of the `GMLK` ModuleScript and put the other files in `src/GMLK` beneath it as ModuleScript children.
+With [Rojo](https://rojo.space/) and its Studio plugin installed, clone and serve the framework project with one terminal command:
+
+```sh
+git clone --depth 1 https://github.com/Faruk-Icen/GMLK.git && cd GMLK && rojo serve default.project.json
+```
+
+Connect the Rojo plugin in Roblox Studio and sync. The project file creates the folders and places the two bootstrap scripts automatically. To add GMLK to an existing Rojo project, copy the relevant mappings from `default.project.json` into that project's file. You can also copy the files into Roblox Studio by hand using the layout above. When copying by hand, make `src/GMLK/init.luau` the source of the `GMLK` ModuleScript and put the other files in `src/GMLK` beneath it as ModuleScript children.
 
 Place your client ModuleScripts under `ReplicatedStorage.Modules.Client` and your server ModuleScripts under `ServerStorage.Modules.Client`. Both bootstrap scripts search descendants, so nested folders are supported. Each bootstrap runs once per client or server session.
 
