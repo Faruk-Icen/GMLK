@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.1.2
+
+- Moved the coin-counter demo to the top of the README, added CI and license badges, and provided one-command Rojo setup for new users.
+- Changed the coin-counter example to print balance and rate-limit feedback in Studio Output.
+- Expanded remote guard tests and showed argument validation in the README's remote examples.
+- Added bug and feature issue forms, beginner-friendly contribution tasks, and a maintenance policy.
+- Enabled GitHub Discussions and added a repository social preview image.
+- Prepared a Show HN draft for use after a public live demo is available.
+
 ## v0.1.1
 
 - Added a coin counter demonstration GIF to the README.
