@@ -148,23 +148,25 @@ local GMLK = require(ReplicatedStorage.Modules.Library.GMLK)
 local Remotes = ReplicatedStorage:WaitForChild("Remotes")
 
 local PurchaseLimit = GMLK.RateLimiter.New(5, 10)
-local PurchaseBinding = PurchaseLimit:BindEvent(Remotes:WaitForChild("Purchase"), function(Player, ItemId)
+local PurchaseHandler = GMLK.RemoteGuard.Wrap({ GMLK.RemoteGuard.Number(1) }, function(Player, ItemId)
 	print(Player.Name, ItemId)
-end, function(Player, RetryAfter)
+end)
+local PurchaseBinding = PurchaseLimit:BindEvent(Remotes:WaitForChild("Purchase"), PurchaseHandler, function(Player, RetryAfter)
 	warn(Player.Name, "can retry in", RetryAfter, "seconds")
 end)
 
 local QuoteLimit = GMLK.RateLimiter.New(2, 5)
-local QuoteBinding = QuoteLimit:BindFunction(Remotes:WaitForChild("GetQuote"), function(Player, ItemId)
+local QuoteHandler = GMLK.RemoteGuard.Wrap({ GMLK.RemoteGuard.Number(1) }, function(Player, ItemId)
 	return { ItemId = ItemId, Price = 100 }
 end)
+local QuoteBinding = QuoteLimit:BindFunction(Remotes:WaitForChild("GetQuote"), QuoteHandler)
 ```
 
 `BindEvent(remote, handler, rejected?)` drops calls over the limit and optionally calls `rejected(player, retryAfter)`. Other `OnServerEvent` listeners on that remote still run, so put the protected action inside the bound handler. `BindFunction(remote, handler)` returns `nil, retryAfter` to the invoking client when blocked. It assigns `OnServerInvoke`, replacing any handler previously assigned outside GMLK; do not assign another handler while the binding is active. Both methods return a binding with `:Disconnect()` to remove the remote handler and player cleanup listener. Use a separate limiter instance for each remote if each action should have its own budget.
 
 `New(capacity, windowSeconds)` requires a positive integer capacity and a positive window in seconds. The bucket permits an initial burst up to capacity and refills evenly over the window. The lower-level `Allow(key, cost)` method returns `allowed`, `retryAfter`, and the remaining token balance. `Remaining(key)`, `Reset(key)`, and `ResetAll()` are also available. Keys can be strings or numbers; omit the key for one shared bucket. A custom clock function can be passed as the third `New` argument for deterministic tests. Validate remote arguments and permissions inside each handler.
 
-Rate limits are kept in memory for each server. Use a shared store if an action needs a limit across multiple servers.
+Rate limits are kept in memory for each server. Use a shared store if an action needs a limit across multiple servers. `RemoteGuard` validates the incoming arguments in the examples above. The purchase handler only prints an item ID; check ownership, permissions, and game state on the server before using this pattern for a real purchase.
 
 ### More modules
 
