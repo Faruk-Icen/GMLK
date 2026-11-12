@@ -1,6 +1,6 @@
 # Show HN draft
 
-Do not submit until a public Roblox experience has been published, tested from a signed-out account, and linked in place of `LIVE_DEMO_URL` below. A local Studio place or README GIF is not a hosted live demo.
+Do not submit until a public Roblox experience has been published, tested from a signed-out account, and linked in place of `LIVE_DEMO_URL` below. The current example reports results in Studio Output, which public players cannot see, so the hosted version also needs visible in-game feedback. A local Studio place or README GIF is not a hosted live demo.
 
 **Title:** Show HN: GMLK – a Luau module loader kit for Roblox games
 

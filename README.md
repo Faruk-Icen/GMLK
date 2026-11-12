@@ -6,7 +6,7 @@ GMLK gives Roblox projects one client and server module startup pattern plus pra
 
 ![GMLK coin counter demo showing Studio Output feedback](assets/coin-counter-demo.gif)
 
-**[Try the coin counter example](examples/coin-counter/README.md)** · **[Read the release notes](CHANGELOG.md)**
+**[Try the coin counter example](examples/coin-counter/README.md)** · **[Download the Studio place](https://github.com/Faruk-Icen/GMLK/releases/download/v0.1.2/GMLK-Coin-Counter-v0.1.2.rbxlx)** · **[Read the release notes](CHANGELOG.md)**
 
 Want to help improve it? Read the [contribution guide](CONTRIBUTING.md).
 
