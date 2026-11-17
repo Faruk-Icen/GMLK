@@ -10,9 +10,7 @@ GMLK gives Roblox projects one client and server module startup pattern plus pra
 
 Want to help improve it? Read the [contribution guide](CONTRIBUTING.md).
 
-For issue response expectations, see the [maintenance policy](MAINTAINERS.md).
-
-See the [changelog](CHANGELOG.md) for release notes and upcoming changes.
+For questions and ideas, use [GitHub Discussions](https://github.com/Faruk-Icen/GMLK/discussions). For issue response expectations, see the [maintenance policy](MAINTAINERS.md).
 
 ## Run the example
 
