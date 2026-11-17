@@ -10,8 +10,12 @@ assert(Number.Commas(1234567) == "1,234,567")
 assert(not pcall(Number.Abbreviate, math.huge))
 
 assert(Time.FormatDuration(3672) == "1:01:12")
+assert(Time.FormatDuration(0) == "0:00")
+assert(Time.FormatDuration(60) == "1:00")
+assert(Time.FormatDuration(3600) == "1:00:00")
 assert(Time.Relative(100, 160) == "1 minute ago")
 assert(Time.Relative(160, 100) == "in 1 minute")
+assert(Time.Relative(100, 100) == "just now")
 assert(not pcall(Time.FormatDuration, -1))
 
 local Handler = RemoteGuard.Wrap({ RemoteGuard.Number(1, 1) }, function(_, Amount)
