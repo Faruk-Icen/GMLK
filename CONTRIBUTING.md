@@ -21,7 +21,7 @@ Keep changes small and consistent with the existing Luau style: use descriptive 
 
 ## Check your change
 
-Install the Luau CLI and Rojo, then run these from the repository root:
+Fork the repository, clone your fork with `git clone https://github.com/YOUR_USERNAME/GMLK.git`, and enter the `GMLK` directory. Install the [Luau CLI](https://github.com/luau-lang/luau/releases) and [Rojo](https://rojo.space/), then run these checks from the repository root:
 
 ```sh
 luau tests/utilities.luau
