@@ -1,0 +1,7 @@
+*.luau text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.gif binary
+*.png binary
+.gitattributes text eol=lf
