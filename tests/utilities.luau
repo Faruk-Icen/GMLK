@@ -32,6 +32,11 @@ assert(not RemoteGuard.Check({ RemoteGuard.Number(0, 10) }, 0 / 0))
 assert(not RemoteGuard.Check({ RemoteGuard.Number(0, 10) }))
 assert(not RemoteGuard.Check({ RemoteGuard.Boolean() }, true, false))
 assert(RemoteGuard.Check({ RemoteGuard.Optional(RemoteGuard.Boolean()) }, nil))
+assert(not RemoteGuard.Check({ RemoteGuard.Optional(RemoteGuard.Boolean()) }))
+assert(not RemoteGuard.Check({ RemoteGuard.Number(0, 10) }, math.huge))
+assert(not RemoteGuard.Check({ function()
+	error("validator failed")
+end }, "input"))
 
 local Called = false
 local Protected = RemoteGuard.Wrap({ RemoteGuard.Number(1, 5) }, function(_, Amount)
