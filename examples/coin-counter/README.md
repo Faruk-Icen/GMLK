@@ -2,6 +2,8 @@
 
 This small Roblox place demonstrates GMLK's client and server bootstraps, `Init` and `Start` lifecycle, argument validation, and per-player remote rate limiting.
 
+[Download the ready-to-open Studio place](https://github.com/Faruk-Icen/GMLK/releases/download/v0.1.2/GMLK-Coin-Counter-v0.1.2.rbxlx), or sync the source with Rojo using the steps below. The example reports results in Studio Output; it is not a hosted Roblox experience.
+
 1. Install [Rojo](https://rojo.space/) and open a new Roblox Studio place.
 2. From the repository root, run `rojo serve examples/coin-counter/default.project.json`.
 3. Connect the Rojo plugin in Studio, sync the project, then press **Play**.
